@@ -23,7 +23,6 @@ Third, the visualization combines a bar chart with a line chart using a secondar
 # Redesigned Visualization 1
 
 This redesign separates the information using faceted charts, making it easier to compare the performance of each product across strategies.
-
 ```{r echo=FALSE}
 library(ggplot2)
 
@@ -60,13 +59,20 @@ ggplot(data, aes(x = strategy, y = value, fill = product)) +
 # Redesigned Visualization 2
 
 This redesign uses a heatmap to highlight patterns across strategies and products, allowing viewers to quickly identify high and low values.
-
 ```{r echo=FALSE}
-ggplot(data,aes(strategy,product,fill=value))+
-geom_tile()+
-scale_fill_gradient(low="lightblue",high="darkred")+
-theme_minimal()+
-labs(title="Redesign 2: Heatmap")
+ggplot(data, aes(x = strategy, y = product, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient(low = "lightblue", high = "darkred") +
+  theme_minimal() +
+  labs(
+    title = "Redesign 2: Heatmap",
+    x = "Strategy",
+    y = "Product",
+    fill = "Value"
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
 ```
 ---
 

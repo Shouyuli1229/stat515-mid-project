@@ -2,20 +2,15 @@ project:
   type: website
 
 website:
-  title: "stat515-redesign-project"
+  title: "STAT 515 Redesign Project"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: Project
+      - href: code.qmd
+        text: Code
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
+    theme: cosmo
     toc: true
-
-editor: visual
-
