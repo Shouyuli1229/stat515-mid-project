@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 515 Redesign Project",
+    "section": "",
+    "text": "The original visualization compares the performance of several products across different sales strategies. The chart includes multiple bars for different products and a line representing the total values.\n\n\n\nThe visualization contains several design issues. First, the chart includes too many elements, which makes it difficult to interpret. With seven products and eight strategies, the chart becomes cluttered and visually overwhelming.\nSecond, the use of many colors increases cognitive load and makes comparisons across strategies harder.\nThird, the visualization combines a bar chart with a line chart using a secondary axis. Dual-axis charts can lead to confusion because viewers may misinterpret the relationship between the two scales."
+  },
+  {
+    "objectID": "index.html#description",
+    "href": "index.html#description",
+    "title": "STAT 515 Redesign Project",
+    "section": "",
+    "text": "The original visualization compares the performance of several products across different sales strategies. The chart includes multiple bars for different products and a line representing the total values."
+  },
+  {
+    "objectID": "index.html#analysis-of-the-original-visualization",
+    "href": "index.html#analysis-of-the-original-visualization",
+    "title": "STAT 515 Redesign Project",
+    "section": "",
+    "text": "The visualization contains several design issues. First, the chart includes too many elements, which makes it difficult to interpret. With seven products and eight strategies, the chart becomes cluttered and visually overwhelming.\nSecond, the use of many colors increases cognitive load and makes comparisons across strategies harder.\nThird, the visualization combines a bar chart with a line chart using a secondary axis. Dual-axis charts can lead to confusion because viewers may misinterpret the relationship between the two scales."
+  },
+  {
+    "objectID": "index.html#example-dataset-used-for-redesign-analysis.",
+    "href": "index.html#example-dataset-used-for-redesign-analysis.",
+    "title": "STAT 515 Redesign Project",
+    "section": "Example dataset used for redesign analysis.",
+    "text": "Example dataset used for redesign analysis."
+  },
+  {
+    "objectID": "code.html",
+    "href": "code.html",
+    "title": "Code",
+    "section": "",
+    "text": "library(ggplot2)\n\nstrategy &lt;- rep(paste(\"S\", 1:8), 7)\nproduct &lt;- rep(c(\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\"), each = 8)\n\nvalue &lt;- c(\n90,95,110,85,108,20,88,108,\n92,135,80,78,88,190,75,90,\n140,145,160,165,135,120,125,135,\n70,150,140,170,25,130,120,25,\n60,40,25,95,180,140,30,180,\n35,90,180,80,160,110,170,160,\n95,50,65,20,18,50,35,15\n)\n\ndata &lt;- data.frame(strategy, product, value)\n\n\n\n\n\nggplot(data, aes(x = strategy, y = value, fill = product)) +\ngeom_col(show.legend = FALSE) +\nfacet_wrap(~product, ncol=3) +\ntheme_minimal() +\nlabs(title=\"Redesign 1: Faceted Bar Charts\")\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data, aes(x = strategy, y = product, fill = value)) +\ngeom_tile(color=\"white\") +\nscale_fill_gradient(low=\"lightblue\", high=\"darkred\") +\ntheme_minimal() +\nlabs(title=\"Redesign 2: Heatmap\")"
+  },
+  {
+    "objectID": "code.html#data-preparation",
+    "href": "code.html#data-preparation",
+    "title": "Code",
+    "section": "",
+    "text": "library(ggplot2)\n\nstrategy &lt;- rep(paste(\"S\", 1:8), 7)\nproduct &lt;- rep(c(\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\"), each = 8)\n\nvalue &lt;- c(\n90,95,110,85,108,20,88,108,\n92,135,80,78,88,190,75,90,\n140,145,160,165,135,120,125,135,\n70,150,140,170,25,130,120,25,\n60,40,25,95,180,140,30,180,\n35,90,180,80,160,110,170,160,\n95,50,65,20,18,50,35,15\n)\n\ndata &lt;- data.frame(strategy, product, value)"
+  },
+  {
+    "objectID": "code.html#redesign-1",
+    "href": "code.html#redesign-1",
+    "title": "Code",
+    "section": "",
+    "text": "ggplot(data, aes(x = strategy, y = value, fill = product)) +\ngeom_col(show.legend = FALSE) +\nfacet_wrap(~product, ncol=3) +\ntheme_minimal() +\nlabs(title=\"Redesign 1: Faceted Bar Charts\")"
+  },
+  {
+    "objectID": "code.html#redesign-2",
+    "href": "code.html#redesign-2",
+    "title": "Code",
+    "section": "",
+    "text": "ggplot(data, aes(x = strategy, y = product, fill = value)) +\ngeom_tile(color=\"white\") +\nscale_fill_gradient(low=\"lightblue\", high=\"darkred\") +\ntheme_minimal() +\nlabs(title=\"Redesign 2: Heatmap\")"
+  }
+]

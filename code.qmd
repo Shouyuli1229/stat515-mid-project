@@ -1,0 +1,51 @@
+---
+title: "code"
+format: html
+---
+
+---
+title: "Code"
+---
+
+# R Code for Redesign Project
+
+## Data Preparation
+
+```{r}
+library(ggplot2)
+
+strategy <- rep(paste("S", 1:8), 7)
+product <- rep(c("A","B","C","D","E","F","G"), each = 8)
+
+value <- c(
+90,95,110,85,108,20,88,108,
+92,135,80,78,88,190,75,90,
+140,145,160,165,135,120,125,135,
+70,150,140,170,25,130,120,25,
+60,40,25,95,180,140,30,180,
+35,90,180,80,160,110,170,160,
+95,50,65,20,18,50,35,15
+)
+
+data <- data.frame(strategy, product, value)
+```
+
+## Redesign 1
+
+```{r}
+ggplot(data, aes(x = strategy, y = value, fill = product)) +
+geom_col(show.legend = FALSE) +
+facet_wrap(~product, ncol=3) +
+theme_minimal() +
+labs(title="Redesign 1: Faceted Bar Charts")
+```
+
+## Redesign 2
+
+```{r}
+ggplot(data, aes(x = strategy, y = product, fill = value)) +
+geom_tile(color="white") +
+scale_fill_gradient(low="lightblue", high="darkred") +
+theme_minimal() +
+labs(title="Redesign 2: Heatmap")
+```
